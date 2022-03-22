@@ -1,36 +1,30 @@
-
 #include<stdio.h>
-#include<string.h>
-int yyy(char s1[], char s2[])
+int main()
 {
-	int i=0, j=0, len, a=0;
-	len=strlen(s2);
-	while (s1[i])
+	int i, n, m, j;
+	long int a[100];
+	int b[100][2];
+	int c[100];
+	scanf("%d",&n);
+	for(i=0;i<n;i++)
 	{
-		for (j=0; j<len; j++)
-		{
-
-			if (s1[i+j]!=s2[j])
-				break;
-			else
-				if (j==len-1)
-					a++;
-		}
-		i++;
+		scanf("%11d%d%d",&a[i],&b[i][0],&b[i][1]);
 	}
-	return a;
-}
-void main()
-{
-	char a[1000];
-	char b[100];
-	int c;
-	printf("请输入句子：");
-	gets(a);
-	printf("请输入想要查询的单词：");
-	gets(b);
-	strlwr(a);
-	strlwr(b);
-	c=yyy(a, b);
-	printf("句子中有%d个%s\n", c, b);
+	scanf("%d", &m);
+	for(i=0;i<m;i++)
+	{
+		scanf("%d",&c[i]);
+	}
+	for(i=0;i<m;i++)
+	{
+		for (j=0;j<n;j++)
+		{
+			if(c[i]==b[j][0])
+			{
+				printf("%11d%d\n",a[j],b[j][1]);
+				break;
+			}
+		}
+	}
+	return 0;
 }
